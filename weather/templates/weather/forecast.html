@@ -1,20 +1,230 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Forecast</title>
-	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'weather/vendors/bootstrap/css/bootstrap.css' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="{% static 'weather/css/style.css' %}" />
+	
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.button {
+  background-color: transparent; 
+  border:1px white;
+  border-radius: 50%;
+  color: aliceblue;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 5px 2px;
+  width: 20px;
+  display: block;
+}
+.button:hover{
+	font-size: 25px;	
+}
+	
+  /* Current weather*/
+.location {
+	color: aliceblue;
+	font-size: 50px;
+	font-weight: 700;
+	text-align: center;
+	padding: 40px;
+	margin: 0;
+}
+.date {
+	font-size: 2em;
+	color: aliceblue;
+	font-weight: 300;
+	text-align: center;
+}
+/* hourly weather*/
+.time {
+	color: aliceblue;
+	text-align: center;
+  padding:20px;
+}
+.degree {
+	color: aliceblue;
+	text-align: center;
+	padding: 20px;
+	
+}
+.houricon{
+  text-align: center;
+  padding:20px;
+  }
+img {
+  margin-left: auto;
+  margin-right: auto;	
+}
+.day {
+	color: aliceblue;
+  margin-left:40px;
+	text-align: left;
+	padding: 20px;
+}
+.temp{
+	color: aliceblue;
+	text-align:  right;
+	padding: 20PX;
+}
 
+body{
+			background-color:#90F0F5
+	}
+</style>
 </head>
+	
 <body>
 	<!-- your single-location forecast interface here -->
+	<!-- current weather -->
+	<div>
+	<div id="currentweather">
+		<h1 class="location">Berkeley</h1>
+		<h2 class="date">Staturday, June 29, 2019</h2>
+	</div>
+	<div class="container">
+			<div class="col-xs-6">
+				<h1 class="temp">65°F</h1>
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" style="width:100px; height:100px">
+			</div>
+			<div class="col-xs-3">
+					<button class="button">°C</button>
+  				<button class="button"><i class="fa fa-search"></i></button>
+			</div>
+		</div>
+	</div>	
+	
+<!-- hourly weather -->
+	<div>
+		<div id="timing" class="time">
+			<div class="col-xs-4">
+				<h2>9:00</h2>
+			</div>
+			<div class="col-xs-4">
+				<h2>10:00</h2>
+			</div>
+			<div class="col-xs-4">
+				<h2>11:00</h2>
+			</div>
+		</div>
+			
+		<div class="houricon">
+			<div class="col-xs-4">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="80" height="80">
+			</div>
+			<div class="col-xs-4">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="80" height="80">
+			</div>
+			<div class="col-xs-4">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="80" height="80">
+			</div>
+		</div>
+		<div id="degree" class="degree">
+			<div class="col-xs-4">
+				<h2>65°F</h2>
+			</div>
+			<div class="col-xs-4">
+				<h2>67°F</h2>
+			</div>
+			<div class="col-xs-4">
+				<h2>66°F</h2>
+			</div>
+		</div>
+	</div>
+
+<!-- future weather -->
+	<div>
+		<div class="fweather">
+			<!-- row1 -->
+      <div class="row">
+        <div class="col-xs-5">
+				  <h2 class="day">Sunday</h2>
+			  </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">
+				  <img src= "{%static "picture/Sunny.png"%}" alt="sun" width="60" height="60">
+			  </div>
+			  <div class="col-xs-3">
+				  <h3 class="degree">57°F|65°F</h3>
+			  </div>
+			  <div class="col-xs-2"></div>
+      </div>
+			
+			<!-- row2 -->
+      <div class="row">
+        <div class="col-xs-5">
+				  <h2 class="day">Monday</h2>
+			  </div>
+        <div class="col-xs-1"></div>
+			  <div class="col-xs-1">
+				  <img src= "{%static "picture/cloudy.png"%}" alt="cloud" width="60" height="60">
+			  </div>
+        <div class="col-xs-3">
+				  <h3 class="degree">58°F|62°F</h3>
+			  </div>
+			  <div class="col-xs-2"></div>
+      </div>
+			
+			<!-- row3 -->
+			<div class="row">
+        <div class="col-xs-5">
+				  <h2 class="day">Tuseday</h2>
+			  </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">
+				  <img src= "{%static "picture/cloudy.png"%}" alt="cloud" width="60" height="60">
+			  </div>
+			  <div class="col-xs-3">
+				  <h3 class="degree">55°F|63°F</h3>
+			  </div>
+			  <div class="col-xs-2"></div>
+      </div>
+			
+			<!-- row4 -->
+			<div class="row">
+        <div class="col-xs-5">
+				  <h2 class="day">Wednesday</h2>
+			  </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">
+				  <img src= "{%static "picture/rainy.png"%}" alt="rain" width="60" height="60">
+			  </div>
+			  <div class="col-xs-3">
+				  <h3 class="degree">52°F|60°F</h3>
+			  </div>
+			  <div class="col-xs-2"></div>
+      </div>
+			
+			
+			<!-- row5 -->
+			<div class="row">
+        <div class="col-xs-5">
+				  <h2 class="day">Thursday</h2>
+			  </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1">
+				  <img src= "{%static "picture/Sunny.png"%}" alt="sun" width="60" height="60">
+			  </div>
+			  <div class="col-xs-3">
+				  <h3 class="degree">55°F|65°F</h3>
+			  </div>
+			  <div class="col-xs-2"></div>
+      </div>
+			
+			
+		</div>
+	</div>
+	
 </body>
 </html>
-
-
-
-
-

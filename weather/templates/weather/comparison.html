@@ -1,15 +1,268 @@
 {% load static %}
-
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Comparison</title>
 	
 	<link rel="stylesheet" type="text/css" href="{% static 'weather/vendors/bootstrap/css/bootstrap.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'weather/css/style.css' %}" />
+	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- icon link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	.city{
+		color: aliceblue;
+		text-align: left;
+    padding:30px;
+	}
+	.time {
+		color: aliceblue;
+		text-align: center;
+    padding: 10px;
+	}
+	.degree {
+		text-align: center;
+		padding: 10px;
+		color: aliceblue;
+	}
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.btn {
+  	background-color: transparent; /* Blue background */
+		border: none; /* Remove borders */
+		color: black; /* White text */
+		font-size: 15px; /* Set a font size */
+		cursor: pointer; /* Mouse pointer on hover */
+	}
+	.btn:hover {
+ 		font-size: 20px;
+	}
+	
+	a {
+  		text-decoration: none;
+  		display: inline-block;
+  		padding: 8px 16px;
+	}
 
+	a:hover {
+  		background-color: transparent;
+  		color: black;
+	}
+
+	.previous {
+		background-color: aliceblue;
+		font-size: 20px;
+		color: black;
+	}
+	.round {
+  		border-radius: 10%;
+	}
+  .returnbtn {
+      size: 100px;      
+  }
+	.searchbox {
+		padding: 20px;
+		display: block;
+		margin-left: 80px;
+		margin-right: auto;	
+	}
+	#seach {
+		width: 400px;
+		text-align: center;
+    height:100px;
+	}
+	#searchicon {
+		width: 100px;
+    height:100px;
+		text-align: center;
+	}
+	body{
+			background-color:#90F0F5
+	}
+
+ </style>
 </head>
 <body>
 	<!-- your comparison interface here -->
+	<!-- return button -->
+	<div>
+		<div class="returnbtn">
+			<a href="#" class="previous round">&#8249;</a>
+		</div>
+	</div>
+	<!-- search box -->
+	<div class="searchbox">
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div id="seach" class="col-xs-7">
+				<input class="form-control" name="size" type="text" placeholder="Search/Add Cities.." />
+			</div>
+			<div id="searchicon" class="col-xs-1">
+				<button class="form-control " aria-hidden="true"><i class="fa fa-search"></i></button>
+			</div>
+		</div>
+	</div>
+	<!-- comparsion -->
+	<div>
+		<!-- city1 -->
+		<div class="city">
+			<div class="col-xs-12">
+				<button class="btn"><i class="fa fa-close"></i></button>
+				<h1>San Francisco</h1>
+			</div>
+			
+		</div>
+		<div id="timing" class="time">
+			<div class="col-xs-3">
+				<h2>Now</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>9:00</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>10:00</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>11:00</h2>
+			</div>
+		</div>
+			
+		<div id="hourlyweathericon" class="houricon">
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+		</div>
+		<div id="degree" class="degree">
+			<div class="col-xs-3">
+				<h2>65°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>67°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>66°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>65°F</h2>
+			</div>
+		</div>
+      
+		<!-- city2 -->
+		<div class="city">
+			<div class="col-xs-12">
+				<button class="btn"><i class="fa fa-close"></i></button>
+				<h1>Oakland</h1>
+			</div>
+		</div>
+		<div class="time">
+			<div class="col-xs-3">
+				<h2>Now</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>9:00</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>10:00</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>11:00</h2>
+			</div>
+		</div>
+			
+		<div class="houricon">
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+		</div>
+		<div class="degree">
+			<div class="col-xs-3">
+				<h2>65°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>67°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>66°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>65°F</h2>
+			</div>
+		</div>
+
+    <!-- city3 -->
+		<div class="city">
+			<div class="col-xs-12">
+				<button class="btn"><i class="fa fa-close"></i></button>
+				<h1>Kyoto</h1>
+			</div>
+			
+		</div>
+		<div id="timing" class="time">
+			<div class="col-xs-3">
+				<h2>Now</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>9:00</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>10:00</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>11:00</h2>
+			</div>
+		</div>
+			
+		<div id="hourlyweathericon" class="houricon">
+			<div class="col-xs-3">
+				<img src= "{%static "picture/Sunny.png"%}" alt="sun" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/cloudy.png"%}" alt="cloud" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/rainy.png"%}" alt="rain" width="100" height="100">
+			</div>
+			<div class="col-xs-3">
+				<img src= "{%static "picture/rainy.png"%}" alt="rain" width="100" height="100">
+			</div>
+		</div>
+		<div id="degree" class="degree">
+			<div class="col-xs-3">
+				<h2>58°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>55°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>52°F</h2>
+			</div>
+			<div class="col-xs-3">
+				<h2>51°F</h2>
+			</div>
+		</div>
+    
+	</div>
 </body>
 </html>
